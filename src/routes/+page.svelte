@@ -27,7 +27,7 @@
 					No tasks found
 				</div>
 			{:else}
-				{#each data.tasks as task}
+				{#each data.tasks as task (task.id)}
 					<div
 						class="p-5 bg-white rounded-lg shadow hover:shadow-md transition flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
 
