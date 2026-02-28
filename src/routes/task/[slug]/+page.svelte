@@ -1,9 +1,9 @@
 <script lang="ts">
 	import type { PageData } from './$types';
 	import {resolve} from '$app/paths'
+	import { enhance } from '$app/forms';
 
 	const { data }: { data: PageData } = $props();
-
 </script>
 
 <section class="min-h-screen bg-gray-50 py-10 px-4">
@@ -82,18 +82,25 @@
 				← Back
 			</a>
 
-			<div class="space-x-3">
+			<div class="space-x-3 flex">
 
 				<a
-					href={resolve(`/task/${data.task.id}/edit`)}
+					href={resolve(`/task/edit/${data.task.id}`)}
 					class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg">
 					Edit
 				</a>
 
-				<button
-					class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg">
-					Delete
-				</button>
+				<form
+					method="POST"
+					action="?/delete"
+					use:enhance
+				>
+					<button
+						type="submit"
+						class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg">
+						Delete
+					</button>
+				</form>
 
 			</div>
 
