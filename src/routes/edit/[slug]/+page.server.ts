@@ -30,6 +30,7 @@ export const actions: Actions = {
 		const title = formData.get('title') as string;
 		const description = formData.get('description') as string;
 		const isCompleted = formData.get('isCompleted') === 'on';
+		const priority = formData.get('priority') as string;
 
 		await db
 			.update(tasks)
@@ -37,6 +38,7 @@ export const actions: Actions = {
 				title,
 				description,
 				isCompleted,
+				priority,
 				updatedAt: new Date()
 			})
 			.where(eq(tasks.id, id));

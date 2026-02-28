@@ -10,10 +10,12 @@ export const actions: Actions = {
 
 		const title = formData.get('title') as string;
 		const description = formData.get('description') as string;
+		const priority = formData.get('priority') as string;
 
 		await db.insert(tasks).values({
 			title,
-			description
+			description,
+			priority
 		});
 
 		throw redirect(303, '/');

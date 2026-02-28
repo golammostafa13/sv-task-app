@@ -24,6 +24,8 @@ export const tasks = pgTable('tasks', {
 
 	isCompleted: boolean('is_completed').notNull().default(false),
 
+	priority: text('priority').notNull().default('medium'),
+
 	createdAt: timestamp('created_at', {
 		withTimezone: true
 	})
